@@ -157,31 +157,31 @@ class FactionUI {
             self::sendMainMenu($player);
         });
         
-        $form->setTitle("§l§6" . $faction->getName());
+        $form->setTitle("§1" . $faction->getName());
         
-        $content = "§e§lInformations:\n\n";
-        $content .= "§7Leader: §e" . $faction->getLeader() . "\n";
-        $content .= "§7Membres: §e" . $faction->getMemberCount() . "\n";
-        $content .= "§7Power: §e" . $faction->getPower() . "/" . $faction->getMaxPower() . "\n";
-        $content .= "§7Argent: §e$" . $faction->getMoney() . "\n";
-        $content .= "§7Description: §e" . ($faction->getDescription() ?: "Aucune") . "\n\n";
+        $content = "§9§lInformations:\n\n";
+        $content .= "§1Leader: §9" . $faction->getLeader() . "\n";
+        $content .= "§1Membres: §9" . $faction->getMemberCount() . "\n";
+        $content .= "§1Power: §9" . $faction->getPower() . "/" . $faction->getMaxPower() . "\n";
+        $content .= "§1Argent: §9$" . $faction->getMoney() . "\n";
+        $content .= "§1Description: §9" . ($faction->getDescription() ?: "Aucune") . "\n\n";
         
-        $content .= "§e§lMembres:\n";
+        $content .= "§9§lMembres:\n";
         foreach ($faction->getMembers() as $member) {
             $role = $faction->isLeader($member) ? "§c[Leader]" : ($faction->isOfficer($member) ? "§6[Officier]" : "§a[Membre]");
-            $content .= $role . " §7" . $member . "\n";
+            $content .= $role . " §1" . $member . "\n";
         }
         
         if (count($faction->getAllies()) > 0) {
-            $content .= "\n§e§lAlliés:\n§a" . implode(", ", $faction->getAllies());
+            $content .= "\n§9§lAlliés:\n§a" . implode(", ", $faction->getAllies());
         }
         
         if (count($faction->getEnemies()) > 0) {
-            $content .= "\n§e§lEnnemis:\n§c" . implode(", ", $faction->getEnemies());
+            $content .= "\n§9§lEnnemis:\n§c" . implode(", ", $faction->getEnemies());
         }
         
         $form->setContent($content);
-        $form->addButton("§cRetour", 0, "textures/ui/arrow_left");
+        $form->addButton("§9Retour");
         
         $player->sendForm($form);
     }
@@ -215,16 +215,16 @@ class FactionUI {
             }
         });
         
-        $form->setTitle("§l§6Gestion de faction");
-        $form->setContent("§7Choisissez une option de gestion:");
+        $form->setTitle("§1Gestion de faction");
+        $form->setContent("§9Choisissez une option de gestion:");
         
-        $form->addButton("§aInviter un joueur\n§7Ajouter un membre", 0, "textures/ui/color_plus");
-        $form->addButton("§cExpulser un membre\n§7Retirer un joueur", 0, "textures/ui/cancel");
-        $form->addButton("§ePromouvoir\n§7Nommer un officier", 0, "textures/ui/arrow_up");
-        $form->addButton("§6Rétrograder\n§7Retirer le grade d'officier", 0, "textures/ui/arrow_down");
-        $form->addButton("§bGérer les alliances\n§7Alliés et ennemis", 0, "textures/ui/icon_deals");
-        $form->addButton("§4Dissoudre la faction\n§7§lDANGER", 0, "textures/ui/trash_default");
-        $form->addButton("§7Retour", 0, "textures/ui/arrow_left");
+        $form->addButton("§9Inviter un joueur\n§1Ajouter un membre");
+        $form->addButton("§1Expulser un membre\n§9Retirer un joueur");
+        $form->addButton("§9Promouvoir\n§1Nommer un officier");
+        $form->addButton("§1Rétrograder\n§9Retirer le grade d'officier");
+        $form->addButton("§9Gérer les alliances\n§1Alliés et ennemis");
+        $form->addButton("§cDissoudre la faction\n§1DANGER");
+        $form->addButton("§7Retour");
         
         $player->sendForm($form);
     }
