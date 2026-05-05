@@ -257,17 +257,17 @@ class FactionUI {
             $faction->addInvite($targetName);
             $factionManager->saveFaction($faction);
             
-            $player->sendMessage("§aInvitation envoyée à §e" . $targetName);
+            $player->sendMessage("§9Invitation envoyée à §1" . $targetName);
             
             $target = $plugin->getServer()->getPlayerByPrefix($targetName);
             if ($target !== null) {
-                $target->sendMessage("§aVous avez été invité à rejoindre la faction §e" . $faction->getName());
-                $target->sendMessage("§7Utilisez §e/f join " . $faction->getName() . " §7pour accepter");
+                $target->sendMessage("§9Vous avez été invité à rejoindre la faction §1" . $faction->getName());
+                $target->sendMessage("§9Utilisez §1/f join " . $faction->getName() . " §9pour accepter");
             }
         });
         
-        $form->setTitle("§l§6Inviter un joueur");
-        $form->addInput("§eNom du joueur:", "Joueur123");
+        $form->setTitle("§1Inviter un joueur");
+        $form->addInput("§9Nom du joueur:", "Joueur123");
         
         $player->sendForm($form);
     }
@@ -294,21 +294,21 @@ class FactionUI {
             Main::getInstance()->getFactionManager()->updatePlayerFaction($targetName, null);
             Main::getInstance()->getFactionManager()->saveFaction($faction);
             
-            $player->sendMessage("§e" . $targetName . " §aa été expulsé de la faction!");
+            $player->sendMessage("§1" . $targetName . " §9a été expulsé de la faction!");
             
             $target = Main::getInstance()->getServer()->getPlayerByPrefix($targetName);
             if ($target !== null) {
-                $target->sendMessage("§cVous avez été expulsé de la faction §e" . $faction->getName());
+                $target->sendMessage("§cVous avez été expulsé de la faction §1" . $faction->getName());
             }
         });
         
-        $form->setTitle("§l§6Expulser un membre");
-        $form->setContent("§7Sélectionnez le membre à expulser:");
+        $form->setTitle("§1Expulser un membre");
+        $form->setContent("§9Sélectionnez le membre à expulser:");
         
         foreach ($faction->getMembers() as $member) {
             if ($member !== $faction->getLeader()) {
                 $role = $faction->isOfficer($member) ? "§6[Officier]" : "§a[Membre]";
-                $form->addButton($role . " §7" . $member);
+                $form->addButton($role . " §1" . $member);
             }
         }
         
@@ -335,15 +335,15 @@ class FactionUI {
             $faction->promoteOfficer($targetName);
             Main::getInstance()->getFactionManager()->saveFaction($faction);
             
-            $player->sendMessage("§e" . $targetName . " §aa été promu officier!");
+            $player->sendMessage("§1" . $targetName . " §9a été promu officier!");
         });
         
-        $form->setTitle("§l§6Promouvoir un membre");
-        $form->setContent("§7Sélectionnez le membre à promouvoir:");
+        $form->setTitle("§1Promouvoir un membre");
+        $form->setContent("§9Sélectionnez le membre à promouvoir:");
         
         foreach ($faction->getMembers() as $member) {
             if ($member !== $faction->getLeader() && !$faction->isOfficer($member)) {
-                $form->addButton("§a[Membre] §7" . $member);
+                $form->addButton("§a[Membre] §1" . $member);
             }
         }
         
@@ -370,14 +370,14 @@ class FactionUI {
             $faction->demoteOfficer($targetName);
             Main::getInstance()->getFactionManager()->saveFaction($faction);
             
-            $player->sendMessage("§e" . $targetName . " §aa été rétrogradé!");
+            $player->sendMessage("§1" . $targetName . " §9a été rétrogradé!");
         });
         
-        $form->setTitle("§l§6Rétrograder un officier");
-        $form->setContent("§7Sélectionnez l'officier à rétrograder:");
+        $form->setTitle("§1Rétrograder un officier");
+        $form->setContent("§9Sélectionnez l'officier à rétrograder:");
         
         foreach ($faction->getOfficers() as $officer) {
-            $form->addButton("§6[Officier] §7" . $officer);
+            $form->addButton("§6[Officier] §1" . $officer);
         }
         
         $player->sendForm($form);
@@ -400,12 +400,12 @@ class FactionUI {
             }
         });
         
-        $form->setTitle("§l§6Gestion des alliances");
-        $form->setContent("§7Gérez vos relations diplomatiques:");
+        $form->setTitle("§1Gestion des alliances");
+        $form->setContent("§9Gérez vos relations diplomatiques:");
         
-        $form->addButton("§aAjouter un allié\n§7Demander une alliance", 0, "textures/ui/color_plus");
-        $form->addButton("§cDéclarer ennemi\n§7Hostilité", 0, "textures/ui/cancel");
-        $form->addButton("§7Retour", 0, "textures/ui/arrow_left");
+        $form->addButton("§9Ajouter un allié\n§1Demander une alliance");
+        $form->addButton("§1Déclarer ennemi\n§9Hostilité");
+        $form->addButton("§7Retour");
         
         $player->sendForm($form);
     }
@@ -445,11 +445,11 @@ class FactionUI {
             $faction->removeEnemy($target->getName());
             $factionManager->saveFaction($faction);
             
-            $player->sendMessage("§aAlliance établie avec §e" . $target->getName());
+            $player->sendMessage("§9Alliance établie avec §1" . $target->getName());
         });
         
-        $form->setTitle("§l§6Demander une alliance");
-        $form->addInput("§eNom de la faction:", "FactionAlliée");
+        $form->setTitle("§1Demander une alliance");
+        $form->addInput("§9Nom de la faction:", "FactionAlliée");
         
         $player->sendForm($form);
     }
@@ -484,11 +484,11 @@ class FactionUI {
             $faction->removeAlly($target->getName());
             $factionManager->saveFaction($faction);
             
-            $player->sendMessage("§cVous êtes maintenant en guerre avec §e" . $target->getName());
+            $player->sendMessage("§cVous êtes maintenant en guerre avec §1" . $target->getName());
         });
         
-        $form->setTitle("§l§6Déclarer ennemi");
-        $form->addInput("§eNom de la faction:", "FactionEnnemie");
+        $form->setTitle("§1Déclarer ennemi");
+        $form->addInput("§9Nom de la faction:", "FactionEnnemie");
         
         $player->sendForm($form);
     }
@@ -506,14 +506,12 @@ class FactionUI {
             }
         });
         
-        $form->setTitle("§l§6Liste des factions");
-        $form->setContent("§7Total: §e" . count($factions) . " §7factions");
+        $form->setTitle("§1Liste des factions");
+        $form->setContent("§9Total: §1" . count($factions) . " §9factions");
         
         foreach ($factions as $faction) {
             $form->addButton(
-                "§e" . $faction->getName() . "\n§7Membres: " . $faction->getMemberCount() . " | Power: " . $faction->getPower(),
-                0,
-                "textures/ui/icon_recipe_item"
+                "§9" . $faction->getName() . "\n§1Membres: " . $faction->getMemberCount() . " | Power: " . $faction->getPower()
             );
         }
         
@@ -534,7 +532,7 @@ class FactionUI {
                     $island = $plugin->getIslandManager()->getIslandByFaction($faction->getName());
                     if ($island !== null) {
                         $player->teleport($island->getSpawnPoint());
-                        $player->sendMessage("§aTéléportation à l'île de faction!");
+                        $player->sendMessage("§9Téléportation à l'île de faction!");
                     } else {
                         $player->sendMessage("§cVotre faction n'a pas d'île!");
                     }
@@ -550,7 +548,7 @@ class FactionUI {
                     if ($island !== null) {
                         $island->setSpawnPoint($player->getPosition());
                         $plugin->getIslandManager()->saveIsland($island);
-                        $player->sendMessage("§aSpawn de l'île défini!");
+                        $player->sendMessage("§9Spawn de l'île défini!");
                     }
                     break;
                     
@@ -564,18 +562,18 @@ class FactionUI {
                     if ($island !== null) {
                         $island->setLocked(!$island->isLocked());
                         $plugin->getIslandManager()->saveIsland($island);
-                        $player->sendMessage($island->isLocked() ? "§cÎle verrouillée!" : "§aÎle déverrouillée!");
+                        $player->sendMessage($island->isLocked() ? "§cÎle verrouillée!" : "§9Île déverrouillée!");
                     }
                     break;
             }
         });
         
-        $form->setTitle("§l§6Île de faction");
-        $form->setContent("§7Gérez l'île de votre faction:");
+        $form->setTitle("§1Île de faction");
+        $form->setContent("§9Gérez l'île de votre faction:");
         
-        $form->addButton("§aTéléporter à l'île\n§7Rejoindre votre base", 0, "textures/ui/world_glyph_color_2x");
-        $form->addButton("§eDéfinir le spawn\n§7Point d'apparition", 0, "textures/ui/icon_setting");
-        $form->addButton("§cVerrouiller/Déverrouiller\n§7Accès à l'île", 0, "textures/ui/lock_color");
+        $form->addButton("§9Téléporter à l'île\n§1Rejoindre votre base");
+        $form->addButton("§1Définir le spawn\n§9Point d'apparition");
+        $form->addButton("§9Verrouiller/Déverrouiller\n§1Accès à l'île");
         
         $player->sendForm($form);
     }
@@ -599,14 +597,14 @@ class FactionUI {
             $factionManager->updatePlayerFaction($player->getName(), null);
             $factionManager->saveFaction($faction);
             
-            $player->sendMessage("§aVous avez quitté la faction §e" . $faction->getName());
+            $player->sendMessage("§9Vous avez quitté la faction §1" . $faction->getName());
         });
         
-        $form->setTitle("§l§cQuitter la faction");
-        $form->setContent("§cÊtes-vous sûr de vouloir quitter votre faction?\n§7Cette action est irréversible!");
+        $form->setTitle("§cQuitter la faction");
+        $form->setContent("§9Êtes-vous sûr de vouloir quitter votre faction?\n§cCette action est irréversible!");
         
-        $form->addButton("§cOui, quitter", 0, "textures/ui/realms_red_x");
-        $form->addButton("§aAnnuler", 0, "textures/ui/cancel");
+        $form->addButton("§cOui, quitter");
+        $form->addButton("§9Annuler");
         
         $player->sendForm($form);
     }
@@ -629,14 +627,14 @@ class FactionUI {
             $factionName = $faction->getName();
             $factionManager->deleteFaction($factionName);
             
-            $player->sendMessage("§cLa faction §e" . $factionName . " §ca été dissoute!");
+            $player->sendMessage("§cLa faction §1" . $factionName . " §ca été dissoute!");
         });
         
-        $form->setTitle("§l§4Dissoudre la faction");
-        $form->setContent("§c§lATTENTION!\n\n§7Êtes-vous sûr de vouloir dissoudre votre faction?\n§7Tous les membres seront expulsés et l'île sera supprimée!\n§c§lCette action est IRRÉVERSIBLE!");
+        $form->setTitle("§cDissoudre la faction");
+        $form->setContent("§c§lATTENTION!\n\n§9Êtes-vous sûr de vouloir dissoudre votre faction?\n§9Tous les membres seront expulsés et l'île sera supprimée!\n§c§lCette action est IRRÉVERSIBLE!");
         
-        $form->addButton("§4Oui, dissoudre", 0, "textures/ui/trash_default");
-        $form->addButton("§aAnnuler", 0, "textures/ui/cancel");
+        $form->addButton("§cOui, dissoudre");
+        $form->addButton("§9Annuler");
         
         $player->sendForm($form);
     }
