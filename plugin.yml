@@ -1,0 +1,13 @@
+name: NexusFactions
+version: 1.0.0
+main: NexusFactions\Main
+api: 5.0.0
+author: Neyrix
+
+permissions:
+  nexusfactions.command:
+    default: true
+    description: Permet d'utiliser les commandes de base
+  nexusfactions.admin:
+    default: op
+    description: Permissions administrateur

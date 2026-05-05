@@ -1,0 +1,64 @@
+# Messages NexusFactions
+
+# Messages de création
+faction-created: "§aFaction {faction} créée avec succès!"
+faction-already-exists: "§cCette faction existe déjà!"
+faction-name-invalid: "§cNom de faction invalide! Utilisez uniquement des lettres, chiffres et underscores."
+faction-name-too-short: "§cLe nom doit contenir au moins 3 caractères!"
+faction-name-too-long: "§cLe nom ne peut pas dépasser 16 caractères!"
+
+# Messages de membre
+already-in-faction: "§cVous êtes déjà dans une faction!"
+not-in-faction: "§cVous n'êtes pas dans une faction!"
+player-already-in-faction: "§cCe joueur est déjà dans une faction!"
+player-not-in-faction: "§cCe joueur n'est pas dans une faction!"
+player-invited: "§aInvitation envoyée à {player}!"
+player-joined: "§a{player} a rejoint la faction!"
+player-left: "§e{player} a quitté la faction!"
+player-kicked: "§c{player} a été expulsé de la faction!"
+cannot-kick-leader: "§cVous ne pouvez pas expulser le leader!"
+
+# Messages de permission
+no-permission: "§cVous n'avez pas la permission!"
+must-be-leader: "§cSeul le leader peut faire cela!"
+must-be-officer: "§cVous devez être officier ou leader!"
+
+# Messages de territoire
+claim-success: "§aChunk claim avec succès!"
+claim-failed: "§cImpossible de claim ce chunk!"
+chunk-already-claimed: "§cCe chunk est déjà claim par {faction}!"
+unclaim-success: "§aChunk unclaim avec succès!"
+not-your-claim: "§cCe chunk n'appartient pas à votre faction!"
+cannot-build: "§cVous ne pouvez pas construire ici! (Territoire de {faction})"
+cannot-break: "§cVous ne pouvez pas casser de blocs ici! (Territoire de {faction})"
+cannot-interact: "§cVous ne pouvez pas interagir ici! (Territoire de {faction})"
+
+# Messages d'alliance
+ally-added: "§aAlliance établie avec {faction}!"
+ally-removed: "§cAlliance rompue avec {faction}!"
+enemy-added: "§cVous êtes maintenant en guerre avec {faction}!"
+enemy-removed: "§aVous n'êtes plus en guerre avec {faction}!"
+cannot-ally-self: "§cVous ne pouvez pas vous allier avec vous-même!"
+cannot-enemy-self: "§cVous ne pouvez pas être ennemi avec vous-même!"
+
+# Messages d'île
+island-created: "§aÎle de faction créée!"
+island-teleport: "§aTéléportation à l'île de faction!"
+island-spawn-set: "§aSpawn de l'île défini!"
+island-locked: "§cÎle verrouillée!"
+island-unlocked: "§aÎle déverrouillée!"
+no-island: "§cVotre faction n'a pas d'île!"
+
+# Messages de dissolution
+faction-disbanded: "§cLa faction {faction} a été dissoute!"
+cannot-disband: "§cSeul le leader peut dissoudre la faction!"
+
+# Messages PvP
+cannot-attack-faction: "§cVous ne pouvez pas attaquer un membre de votre faction!"
+cannot-attack-ally: "§cVous ne pouvez pas attaquer un allié!"
+
+# Messages divers
+faction-not-found: "§cFaction introuvable!"
+player-not-found: "§cJoueur introuvable!"
+insufficient-power: "§cPower insuffisant!"
+insufficient-money: "§cArgent insuffisant!"

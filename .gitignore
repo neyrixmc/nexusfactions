@@ -1,0 +1,18 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Composer
+vendor/
+composer.lock
+
+# Build
+*.phar
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Plugin data (pour tests)
+plugin_data/

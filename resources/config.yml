@@ -1,0 +1,101 @@
+# Configuration NexusFactions
+
+# Paramètres généraux
+general:
+  # Nombre maximum de membres par faction
+  max-members: 20
+  
+  # Nombre maximum de factions sur le serveur (0 = illimité)
+  max-factions: 0
+  
+  # Coût de création d'une faction (nécessite un plugin d'économie)
+  creation-cost: 0
+  
+  # Power par défaut d'une nouvelle faction
+  default-power: 10
+  
+  # Power maximum par faction
+  max-power: 100
+  
+  # Power gagné par membre actif
+  power-per-member: 5
+  
+  # Longueur minimale du nom de faction
+  min-name-length: 3
+  
+  # Longueur maximale du nom de faction
+  max-name-length: 16
+
+# Paramètres des îles
+islands:
+  # Taille par défaut d'une île (en blocs)
+  default-size: 100
+  
+  # Taille minimale d'une île
+  min-size: 50
+  
+  # Taille maximale d'une île
+  max-size: 500
+  
+  # Distance entre les îles
+  island-spacing: 500
+  
+  # Monde des îles
+  world-name: "world"
+  
+  # Créer automatiquement une île lors de la création d'une faction
+  auto-create: true
+
+# Paramètres des claims
+claims:
+  # Nombre maximum de claims par faction
+  max-claims: 10
+  
+  # Coût par claim (nécessite un plugin d'économie)
+  claim-cost: 100
+  
+  # Power requis par claim
+  power-per-claim: 5
+  
+  # Permettre l'overclaim (claim sur un territoire ennemi avec plus de power)
+  allow-overclaim: false
+
+# Paramètres PvP
+pvp:
+  # Activer le PvP entre factions
+  faction-pvp: true
+  
+  # Désactiver le PvP entre membres de la même faction
+  friendly-fire: false
+  
+  # Désactiver le PvP entre alliés
+  ally-fire: false
+
+# Système d'économie
+economy:
+  # Activer le système d'économie (false = désactivé, en attente d'un plugin d'économie)
+  enabled: false
+  
+  # Plugin d'économie à utiliser (EconomyAPI, BedrockEconomy, etc.)
+  provider: "EconomyAPI"
+
+# Thème de l'interface
+ui:
+  # Couleur principale (codes couleur Minecraft)
+  primary-color: "§9"
+  
+  # Couleur secondaire
+  secondary-color: "§1"
+  
+  # Couleur de succès
+  success-color: "§a"
+  
+  # Couleur d'erreur
+  error-color: "§c"
+  
+  # Couleur d'avertissement
+  warning-color: "§e"
+
+# Messages
+messages:
+  prefix: "§9[§1NexusFactions§9]§r "
