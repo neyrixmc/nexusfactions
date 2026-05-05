@@ -7,6 +7,10 @@ projects:
     path: ""
     icon: icon.png
     model: default
-    type: library
+    type: plugin
+    libs:
+      - src: jojoe77777/FormAPI
+        version: ^2.0
+        shade: single
     
 ...

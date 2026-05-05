@@ -1,0 +1,43 @@
+name: Build NexusFactions
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: phar, json, mbstring
+        ini-values: phar.readonly=0
+    
+    - name: Build .phar
+      run: php build.php
+    
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: NexusFactions
+        path: NexusFactions.phar
+    
+    - name: Upload to release
+      if: github.event_name == 'release'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./NexusFactions.phar
+        asset_name: NexusFactions.phar
+        asset_content_type: application/octet-stream

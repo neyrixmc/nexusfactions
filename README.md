@@ -2,6 +2,33 @@
 
 Plugin de factions complet pour PocketMine-MP 5.0+ avec système d'îles et interface Form UI.
 
+## 📥 Installation
+
+### Méthode 1: Télécharger le .phar (Recommandé)
+1. Téléchargez le fichier `NexusFactions.phar` depuis les [Releases](../../releases)
+2. Placez le fichier dans le dossier `plugins/` de votre serveur
+3. Redémarrez le serveur
+4. Les fichiers de configuration seront générés automatiquement
+
+### Méthode 2: Build depuis les sources
+```bash
+# Cloner le repository
+git clone https://github.com/VotreUsername/nexusfactions.git
+cd nexusfactions
+
+# Linux/Mac
+chmod +x build.sh
+./build.sh
+
+# Windows
+build.bat
+
+# Le fichier NexusFactions.phar sera créé
+```
+
+### Méthode 3: Poggit CI
+Le plugin est disponible sur Poggit CI pour des builds automatiques à chaque commit.
+
 ## 🌟 Fonctionnalités
 
 ### Système de Factions
@@ -39,11 +66,24 @@ Plugin de factions complet pour PocketMine-MP 5.0+ avec système d'îles et inte
 
 ## 📦 Installation
 
-1. Téléchargez le plugin
+1. Téléchargez le fichier `NexusFactions.phar` depuis les [Releases](../../releases)
 2. Placez le dossier dans `plugins/`
 3. **(Recommandé)** Installez [FormAPI](https://github.com/jojoe77777/FormAPI) pour les menus UI
 4. Redémarrez le serveur
 5. Configurez `config.yml` selon vos besoins
+
+### Build manuel
+Si vous souhaitez compiler le plugin vous-même:
+```bash
+# Linux/Mac
+./build.sh
+
+# Windows
+build.bat
+
+# Ou directement avec PHP
+php -d phar.readonly=0 build.php
+```
 
 ## 🎮 Commandes
 
