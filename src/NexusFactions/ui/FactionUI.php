@@ -105,8 +105,13 @@ class FactionUI {
                 return;
             }
             
-            if (strlen($name) < 3 || strlen($name) > 16) {
-                $player->sendMessage("§cLe nom doit contenir entre 3 et 16 caractères!");
+            $plugin = Main::getInstance();
+            $config = $plugin->getConfig();
+            $minLength = $config->getNested("general.min-name-length", 3);
+            $maxLength = $config->getNested("general.max-name-length", 16);
+            
+            if (strlen($name) < $minLength || strlen($name) > $maxLength) {
+                $player->sendMessage("§cLe nom doit contenir entre " . $minLength . " et " . $maxLength . " caractères!");
                 return;
             }
             
@@ -115,7 +120,6 @@ class FactionUI {
                 return;
             }
             
-            $plugin = Main::getInstance();
             $factionManager = $plugin->getFactionManager();
             
             if ($factionManager->factionExists($name)) {
@@ -125,16 +129,16 @@ class FactionUI {
             
             $faction = $factionManager->createFaction($name, $player->getName());
             if ($faction !== null) {
-                $player->sendMessage("§aFaction §e" . $name . " §acréée avec succès!");
+                $player->sendMessage("§9Faction §1" . $name . " §9créée avec succès!");
                 
                 // Créer automatiquement une île
                 $plugin->getIslandManager()->createIsland($name, $player->getPosition());
-                $player->sendMessage("§aÎle de faction créée!");
+                $player->sendMessage("§9Île de faction créée!");
             }
         });
         
-        $form->setTitle("§l§6Créer une faction");
-        $form->addInput("§eNom de la faction:", "MonFaction");
+        $form->setTitle("§1Créer une faction");
+        $form->addInput("§9Nom de la faction:", "MonFaction");
         
         $player->sendForm($form);
     }
