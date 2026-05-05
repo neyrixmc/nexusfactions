@@ -168,6 +168,24 @@ Le plugin utilise FormAPI pour créer des menus interactifs avec un **thème ble
 - **Économie:** Le système d'économie est actuellement **désactivé** (`economy.enabled: false`). Vous devez installer un plugin d'économie compatible (EconomyAPI, BedrockEconomy, etc.) et l'activer dans la config pour utiliser les fonctionnalités payantes.
 - **FormAPI:** Fortement recommandé pour profiter de l'interface graphique complète.
 - **Thème:** L'interface utilise un thème bleu professionnel sans emojis ni textures pour une meilleure compatibilité.
+- **Messages:** Tous les messages sont personnalisables dans `messages.yml` avec support des variables dynamiques.
+
+## 📋 Fichiers de Configuration
+
+### messages.yml
+Le fichier `messages.yml` permet de personnaliser tous les messages du plugin :
+- Support des variables dynamiques avec `{variable}`
+- Codes couleur Minecraft supportés
+- Messages pour joueurs et administrateurs
+- Préfixe personnalisable
+
+**Exemple d'utilisation:**
+```yaml
+faction-created: "§9Faction §1{faction} §9créée avec succès!"
+player-invited: "§9Invitation envoyée à §1{player}§9!"
+```
+
+Les variables sont automatiquement remplacées par le plugin (ex: `{faction}`, `{player}`, `{power}`, etc.).
 
 ## 🐛 Support
 

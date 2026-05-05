@@ -1,22 +1,31 @@
 # Messages NexusFactions
+# Utilisez {variable} pour les remplacements dynamiques
+# Codes couleur: §9 (bleu), §1 (bleu foncé), §a (vert), §c (rouge), §e (jaune)
+
+# Préfixe des messages
+prefix: "§9[§1NexusFactions§9]§r "
 
 # Messages de création
-faction-created: "§aFaction {faction} créée avec succès!"
+faction-created: "§9Faction §1{faction} §9créée avec succès!"
 faction-already-exists: "§cCette faction existe déjà!"
 faction-name-invalid: "§cNom de faction invalide! Utilisez uniquement des lettres, chiffres et underscores."
-faction-name-too-short: "§cLe nom doit contenir au moins 3 caractères!"
-faction-name-too-long: "§cLe nom ne peut pas dépasser 16 caractères!"
+faction-name-too-short: "§cLe nom doit contenir au moins {min} caractères!"
+faction-name-too-long: "§cLe nom ne peut pas dépasser {max} caractères!"
+max-factions-reached: "§cLe nombre maximum de factions a été atteint!"
 
 # Messages de membre
 already-in-faction: "§cVous êtes déjà dans une faction!"
 not-in-faction: "§cVous n'êtes pas dans une faction!"
 player-already-in-faction: "§cCe joueur est déjà dans une faction!"
 player-not-in-faction: "§cCe joueur n'est pas dans une faction!"
-player-invited: "§aInvitation envoyée à {player}!"
-player-joined: "§a{player} a rejoint la faction!"
-player-left: "§e{player} a quitté la faction!"
-player-kicked: "§c{player} a été expulsé de la faction!"
+player-invited: "§9Invitation envoyée à §1{player}§9!"
+player-joined: "§9{player} §9a rejoint la faction!"
+player-left: "§1{player} §9a quitté la faction!"
+player-kicked: "§1{player} §9a été expulsé de la faction!"
 cannot-kick-leader: "§cVous ne pouvez pas expulser le leader!"
+player-promoted: "§1{player} §9a été promu officier!"
+player-demoted: "§1{player} §9a été rétrogradé!"
+max-members-reached: "§cLa faction a atteint le nombre maximum de membres!"
 
 # Messages de permission
 no-permission: "§cVous n'avez pas la permission!"
@@ -24,41 +33,68 @@ must-be-leader: "§cSeul le leader peut faire cela!"
 must-be-officer: "§cVous devez être officier ou leader!"
 
 # Messages de territoire
-claim-success: "§aChunk claim avec succès!"
+claim-success: "§9Chunk claim avec succès!"
 claim-failed: "§cImpossible de claim ce chunk!"
-chunk-already-claimed: "§cCe chunk est déjà claim par {faction}!"
-unclaim-success: "§aChunk unclaim avec succès!"
+chunk-already-claimed: "§cCe chunk est déjà claim par §1{faction}§c!"
+unclaim-success: "§9Chunk unclaim avec succès!"
 not-your-claim: "§cCe chunk n'appartient pas à votre faction!"
-cannot-build: "§cVous ne pouvez pas construire ici! (Territoire de {faction})"
-cannot-break: "§cVous ne pouvez pas casser de blocs ici! (Territoire de {faction})"
-cannot-interact: "§cVous ne pouvez pas interagir ici! (Territoire de {faction})"
+max-claims-reached: "§cVotre faction a atteint le nombre maximum de claims!"
+insufficient-power-claim: "§cPower insuffisant pour claim ce chunk!"
+cannot-build: "§cVous ne pouvez pas construire ici! (Territoire de §1{faction}§c)"
+cannot-break: "§cVous ne pouvez pas casser de blocs ici! (Territoire de §1{faction}§c)"
+cannot-interact: "§cVous ne pouvez pas interagir ici! (Territoire de §1{faction}§c)"
 
 # Messages d'alliance
-ally-added: "§aAlliance établie avec {faction}!"
-ally-removed: "§cAlliance rompue avec {faction}!"
-enemy-added: "§cVous êtes maintenant en guerre avec {faction}!"
-enemy-removed: "§aVous n'êtes plus en guerre avec {faction}!"
+ally-added: "§9Alliance établie avec §1{faction}§9!"
+ally-removed: "§cAlliance rompue avec §1{faction}§c!"
+enemy-added: "§cVous êtes maintenant en guerre avec §1{faction}§c!"
+enemy-removed: "§9Vous n'êtes plus en guerre avec §1{faction}§9!"
 cannot-ally-self: "§cVous ne pouvez pas vous allier avec vous-même!"
 cannot-enemy-self: "§cVous ne pouvez pas être ennemi avec vous-même!"
+already-ally: "§cVous êtes déjà allié avec cette faction!"
+already-enemy: "§cVous êtes déjà ennemi avec cette faction!"
 
 # Messages d'île
-island-created: "§aÎle de faction créée!"
-island-teleport: "§aTéléportation à l'île de faction!"
-island-spawn-set: "§aSpawn de l'île défini!"
+island-created: "§9Île de faction créée!"
+island-teleport: "§9Téléportation à l'île de faction!"
+island-spawn-set: "§9Spawn de l'île défini!"
 island-locked: "§cÎle verrouillée!"
-island-unlocked: "§aÎle déverrouillée!"
+island-unlocked: "§9Île déverrouillée!"
 no-island: "§cVotre faction n'a pas d'île!"
+island-locked-access: "§cCette île est verrouillée!"
 
 # Messages de dissolution
-faction-disbanded: "§cLa faction {faction} a été dissoute!"
+faction-disbanded: "§cLa faction §1{faction} §ca été dissoute!"
 cannot-disband: "§cSeul le leader peut dissoudre la faction!"
+faction-disbanded-by-admin: "§cVotre faction a été dissoute par un administrateur!"
 
 # Messages PvP
 cannot-attack-faction: "§cVous ne pouvez pas attaquer un membre de votre faction!"
 cannot-attack-ally: "§cVous ne pouvez pas attaquer un allié!"
 
+# Messages d'économie
+insufficient-money: "§cArgent insuffisant! Coût: §1${amount}"
+money-added: "§9+§1${amount} §9ajouté à la banque de faction!"
+money-removed: "§9-§1${amount} §9retiré de la banque de faction!"
+economy-disabled: "§cLe système d'économie est désactivé!"
+
 # Messages divers
 faction-not-found: "§cFaction introuvable!"
 player-not-found: "§cJoueur introuvable!"
+player-offline: "§cCe joueur n'est pas en ligne!"
 insufficient-power: "§cPower insuffisant!"
-insufficient-money: "§cArgent insuffisant!"
+command-usage: "§9Usage: §1{usage}"
+config-reloaded: "§9Configuration rechargée avec succès!"
+no-invites: "§cVous n'avez aucune invitation!"
+invite-expired: "§cCette invitation a expiré!"
+
+# Messages admin
+admin-faction-deleted: "§9Faction §1{faction} §9supprimée!"
+admin-joined-faction: "§9Vous avez rejoint §1{faction} §9en mode admin!"
+admin-power-set: "§9Power de §1{faction} §9défini à §1{power}"
+admin-power-added: "§9+§1{power} §9power ajouté à §1{faction}"
+admin-power-removed: "§9-§1{power} §9power retiré de §1{faction}"
+admin-member-added: "§1{player} §9ajouté à §1{faction}"
+admin-member-removed: "§1{player} §9retiré de §1{faction}"
+admin-leader-changed: "§1{player} §9est maintenant le leader de §1{faction}"
+

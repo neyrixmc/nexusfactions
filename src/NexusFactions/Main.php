@@ -11,6 +11,7 @@ use NexusFactions\manager\IslandManager;
 use NexusFactions\manager\ClaimManager;
 use NexusFactions\command\FactionCommand;
 use NexusFactions\listener\EventListener;
+use NexusFactions\utils\MessageManager;
 
 class Main extends PluginBase {
     use SingletonTrait;
@@ -18,6 +19,7 @@ class Main extends PluginBase {
     private FactionManager $factionManager;
     private IslandManager $islandManager;
     private ClaimManager $claimManager;
+    private MessageManager $messageManager;
 
     protected function onLoad(): void {
         self::setInstance($this);
@@ -33,6 +35,7 @@ class Main extends PluginBase {
         @mkdir($this->getDataFolder() . "players");
         
         // Initialiser les managers
+        $this->messageManager = new MessageManager($this);
         $this->factionManager = new FactionManager($this);
         $this->islandManager = new IslandManager($this);
         $this->claimManager = new ClaimManager($this);
@@ -63,5 +66,9 @@ class Main extends PluginBase {
 
     public function getClaimManager(): ClaimManager {
         return $this->claimManager;
+    }
+
+    public function getMessageManager(): MessageManager {
+        return $this->messageManager;
     }
 }
