@@ -39,6 +39,7 @@ class Main extends PluginBase {
         
         // Enregistrer les commandes
         $this->getServer()->getCommandMap()->register("nexusfactions", new FactionCommand($this));
+        $this->getServer()->getCommandMap()->register("nexusfactions", new \NexusFactions\command\FactionAdminCommand($this));
         
         // Enregistrer les événements
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);

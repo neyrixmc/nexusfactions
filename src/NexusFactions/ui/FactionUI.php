@@ -70,25 +70,25 @@ class FactionUI {
             }
         });
         
-        $form->setTitle("§l§6NexusFactions");
+        $form->setTitle("§1NexusFactions");
         
         $plugin = Main::getInstance();
         $faction = $plugin->getFactionManager()->getPlayerFaction($player->getName());
         
         if ($faction === null) {
-            $form->setContent("§7Bienvenue dans le système de factions!\n§7Créez ou rejoignez une faction pour commencer.");
-            $form->addButton("§aCréer une faction\n§7Fonder votre propre faction", 0, "textures/ui/color_plus");
+            $form->setContent("§9Bienvenue dans le système de factions!\n§9Créez ou rejoignez une faction pour commencer.");
+            $form->addButton("§9Créer une faction\n§1Fonder votre propre faction");
         } else {
-            $form->setContent("§7Faction: §e" . $faction->getName() . "\n§7Membres: §e" . $faction->getMemberCount() . "\n§7Power: §e" . $faction->getPower() . "/" . $faction->getMaxPower());
-            $form->addButton("§aMa faction\n§7Voir les informations", 0, "textures/ui/icon_recipe_item");
+            $form->setContent("§9Faction: §1" . $faction->getName() . "\n§9Membres: §1" . $faction->getMemberCount() . "\n§9Power: §1" . $faction->getPower() . "/" . $faction->getMaxPower());
+            $form->addButton("§9Ma faction\n§1Voir les informations");
         }
         
-        $form->addButton("§bGérer la faction\n§7Options de gestion", 0, "textures/ui/settings_glyph_color_2x");
-        $form->addButton("§eListe des factions\n§7Voir toutes les factions", 0, "textures/ui/book_writable_default");
-        $form->addButton("§dÎle de faction\n§7Gérer votre île", 0, "textures/ui/world_glyph_color_2x");
+        $form->addButton("§1Gérer la faction\n§9Options de gestion");
+        $form->addButton("§9Liste des factions\n§1Voir toutes les factions");
+        $form->addButton("§1Île de faction\n§9Gérer votre île");
         
         if ($faction !== null) {
-            $form->addButton("§cQuitter la faction\n§7Abandonner votre faction", 0, "textures/ui/cancel");
+            $form->addButton("§cQuitter la faction\n§9Abandonner votre faction");
         }
         
         $player->sendForm($form);

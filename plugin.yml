@@ -10,4 +10,4 @@ permissions:
     description: Permet d'utiliser les commandes de base
   nexusfactions.admin:
     default: op
-    description: Permissions administrateur
+    description: Permissions administrateur pour gérer toutes les factions
